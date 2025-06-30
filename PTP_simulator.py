@@ -119,11 +119,11 @@ def generate_plot2(start, finish, vel, acc, jerk):
     fig1.update_layout(title="Plot of Position", xaxis_title="Time[ms]", yaxis_title="(User Units)", hovermode="x unified")
     # Plot 2
     fig2 = go.Figure()
-    fig2.add_trace(go.Scatter(x=time, y=speed, mode='lines', name='Velocity',hovertemplate="Time: %{x:.3f}s<br>Velocity: %{y:.2f} uut/sec"))
+    fig2.add_trace(go.Scatter(x=time, y=speed, name='Velocity',mode='lines',hovertemplate="Time: %{x:.3f}s<br>Velocity: %{y:.2f} uut/sec"))
     fig2.update_layout(title="Plot of Velocity", xaxis_title="Time[ms]", yaxis_title="(User Units)/sec", hovermode="x unified")
     # Plot 3
     fig3 = go.Figure()
-    fig3.add_trace(go.Scatter(x=time, y=acc, mode='lines', name='Acceleration',hovertemplate="Time: %{x:.3f}s<br>Acceleration: %{y:.2f} uut/sec^2"))
+    fig3.add_trace(go.Scatter(x=time, y=acc, name='Acceleration',mode='lines',hovertemplate="Time: %{x:.3f}s<br>Acceleration: %{y:.2f} uut/sec^2"))
     fig3.update_layout(title="Plot of Acceleration", xaxis_title="Time[ms]", yaxis_title="(User Units)/sec^2", hovermode="x unified")
     
          
