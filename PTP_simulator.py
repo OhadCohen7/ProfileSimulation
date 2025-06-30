@@ -4,6 +4,7 @@ from ruckig import InputParameter, OutputParameter, Result, Ruckig, Trajectory
 from matplotlib import pyplot as plt
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
+import streamlit as st
 
 class Axis:
     def __init__(self, name, vel, acc, dec, jerk, units):
@@ -103,8 +104,8 @@ def generate_plot(start, finish, vel, acc, dec,jerk):
               
     return(t1,fig)
 
-def generate_plot2(start, finish, vel, acc, dec,jerk):
-    axis1 = Axis("axis1",vel,acc,dec,jerk,'mm')
+def generate_plot2(start, finish, vel, acc, jerk):
+    axis1 = Axis("axis1",vel,acc,acc,jerk,'mm')
     t1 = axis1.time_to_perform(start, finish)
     time, position,speed,acc = axis1.online_trajectory(start, finish)
     # Flatten Y data from [[x]] to [x]
@@ -123,41 +124,30 @@ def generate_plot2(start, finish, vel, acc, dec,jerk):
     # Plot 3
     fig3 = go.Figure()
     fig3.add_trace(go.Scatter(x=time, y=acc, mode='lines', name='Acceleration'))
-    fig3.update_layout(title="Plot of Acceleration", xaxis_title="Time[ms]", yaxis_title="(User Units)/sec2", hovermode="x unified")
+    fig3.update_layout(title="Plot of Acceleration", xaxis_title="Time[ms]", yaxis_title="(User Units)/sec^$2$", hovermode="x unified")
     
          
               
     return (fig1, fig2, fig3), t1
                       
 
-# X = Axis("X", 1200, 24000, 24000, 600000, 'mm')
-# Y = Axis("Y", 1200, 8000, 8000, 185000, 'mm')
-# Axis = Y
-# pos0 = 0
-# pos1 = 150
 
-
-# app.py
-import streamlit as st
-import matplotlib.pyplot as plt
-#from your_script import generate_plot  # replace with your actual import
 
 # Title
-st.title("Interactive Plot Generator")
+st.title("Interactive Motion Profile Generator")
 
 # Sidebar Inputs
 param1 = st.sidebar.number_input("Start Position [(User Units)]", value=0)
-param2 = st.sidebar.number_input("End Position[(User Units)]", value=50)
+param2 = st.sidebar.number_input("End Position [(User Units)]", value=50)
 param3 = st.sidebar.number_input("Speed [(User Units)/sec]", value=1200)
-param4 = st.sidebar.number_input("Acceleration [(User Units)/sec2]", value=24000)
-param5 = st.sidebar.number_input("Deceleration [(User Units)/sec2]", value=24000)
-param6 = st.sidebar.number_input("Jerk [(User Units)/sec3]", value=600000)
+param4 = st.sidebar.number_input("Acceleration & Deceleration [(User Units)/sec^$2$]", value=24000)
+param6 = st.sidebar.number_input("Jerk [(User Units)/sec^$2$]", value=600000)
 
 # Generate and Display Plot
 if st.button("Generate Plot"):
     #st.pyplot(fig)
-    figs,time = generate_plot2(param1, param2, param3, param4, param5,param6)
-    st.markdown(f"### Time To Perform Required Profile: `{time:.2f}` m-sec")
+    figs,time = generate_plot2(param1, param2, param3, param4, param6)
+    st.markdown(f"### Time To Perform The Defined Profile: `{time:.2f}` m-sec")
     st.plotly_chart(figs[0], use_container_width=True)
     st.plotly_chart(figs[1], use_container_width=True)
     st.plotly_chart(figs[2], use_container_width=True)
