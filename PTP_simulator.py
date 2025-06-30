@@ -137,7 +137,7 @@ def generate_plot2(start, finish, vel, acc, jerk):
 st.title("Interactive Motion Profile Generator")
 
 # Sidebar Inputs
-param1 = st.sidebar.number_input("Start Position \n [(User Units)]", value=,format="%.2f")
+param1 = st.sidebar.number_input("Start Position \n [(User Units)]", value=0,format="%.2f")
 param2 = st.sidebar.number_input("End Position \n [(User Units)]", value=50,format="%.2f")
 param3 = st.sidebar.number_input("Speed \n [(User Units)/sec]", value=1200,format="%.2f")
 param4 = st.sidebar.number_input("Acceleration & Deceleration \n [(User Units)/sec^$2$]", value=24000,format="%.2f")
