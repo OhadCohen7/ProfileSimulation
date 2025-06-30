@@ -139,9 +139,9 @@ st.title("Interactive Motion Profile Generator")
 # Sidebar Inputs
 param1 = st.sidebar.number_input("Start Position   [(User Units)]", value=0,icon=':material/line_start_circle:')
 param2 = st.sidebar.number_input("End Position   [(User Units)]", value=50,icon=':material/line_end_circle:')
-param3 = st.sidebar.number_input("Speed  [(User Units)/sec]", value=1200,icon=':material/speed')
-param4 = st.sidebar.number_input("Acc & Dec  \n[(User Units)/sec^$2$]", value=24000,icon=':material/motion_blur')
-param6 = st.sidebar.number_input("Jerk [(User Units)/sec^$3$]", value=600000,icon=':material/fast_forward')
+param3 = st.sidebar.number_input("Speed  [(User Units)/sec]", value=1200,icon=':material/speed:')
+param4 = st.sidebar.number_input("Acc & Dec  \n[(User Units)/sec^$2$]", value=24000,icon=':material/motion_blur:')
+param6 = st.sidebar.number_input("Jerk [(User Units)/sec^$3$]", value=600000,icon=':material/fast_forward:')
 
 # Generate and Display Plot
 if st.button("Generate Plot"):
