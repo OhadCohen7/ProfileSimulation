@@ -124,7 +124,7 @@ def generate_plot2(start, finish, vel, acc, jerk):
     # Plot 3
     fig3 = go.Figure()
     fig3.add_trace(go.Scatter(x=time, y=acc, mode='lines', name='Acceleration'))
-    fig3.update_layout(title="Plot of Acceleration", xaxis_title="Time[ms]", yaxis_title="(User Units)/sec^$2$", hovermode="x unified")
+    fig3.update_layout(title="Plot of Acceleration", xaxis_title="Time[ms]", yaxis_title="(User Units)/sec^2", hovermode="x unified")
     
          
               
@@ -137,21 +137,20 @@ def generate_plot2(start, finish, vel, acc, jerk):
 st.title("Interactive Motion Profile Generator")
 
 # Sidebar Inputs
-param1 = st.sidebar.number_input("Start Position [(User Units)]", value=0)
-param2 = st.sidebar.number_input("End Position [(User Units)]", value=50)
-param3 = st.sidebar.number_input("Speed [(User Units)/sec]", value=1200)
-param4 = st.sidebar.number_input("Acceleration & Deceleration [(User Units)/sec^$2$]", value=24000)
-param6 = st.sidebar.number_input("Jerk [(User Units)/sec^$2$]", value=600000)
+param1 = st.sidebar.number_input("Start Position \n [(User Units)]", value=,format="%.2f")
+param2 = st.sidebar.number_input("End Position \n [(User Units)]", value=50,format="%.2f")
+param3 = st.sidebar.number_input("Speed \n [(User Units)/sec]", value=1200,format="%.2f")
+param4 = st.sidebar.number_input("Acceleration & Deceleration \n [(User Units)/sec^$2$]", value=24000,format="%.2f")
+param6 = st.sidebar.number_input("Jerk [(User Units)/sec^$2$]", value=600000,format="%.2f")
 
 # Generate and Display Plot
 if st.button("Generate Plot"):
     #st.pyplot(fig)
     figs,time = generate_plot2(param1, param2, param3, param4, param6)
-    st.markdown(f"### Time To Perform The Defined Profile: `{time:.2f}` m-sec")
+    st.markdown(f"### Time To Perform The Defined Profile: `{time:.2f}` seconds")
     st.plotly_chart(figs[0], use_container_width=True)
     st.plotly_chart(figs[1], use_container_width=True)
     st.plotly_chart(figs[2], use_container_width=True)
-    
     
     
     
