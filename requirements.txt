@@ -1,0 +1,6 @@
+numpy
+copy
+ruckig
+matplotlib
+plotly
+streamlit
