@@ -85,21 +85,21 @@ def generate_plot(start, finish, vel, acc, dec,jerk):
     ax[0].legend()
     ax[0].grid()
     ax[0].set_title("Position")
-    ax[0].set_xlabel("Time [ms]")
+    ax[0].set_xlabel("Time [sec]")
     ax[0].set_ylabel("[mm]")
     
     ax[1].plot(time,speed,label="Velocity")
     ax[1].legend()
     ax[1].grid()
     ax[1].set_title("Speed")
-    ax[1].set_xlabel("Time [ms]")
+    ax[1].set_xlabel("Time [sec]")
     ax[1].set_ylabel("[mm/sec]") 
 
     ax[2].plot(time,speed,label="Acceleration")
     ax[2].legend()
     ax[2].grid()
     ax[2].set_title("Acceleration")
-    ax[2].set_xlabel("Time [ms]")
+    ax[2].set_xlabel("Time [sec]")
     ax[2].set_ylabel("[mm/sec2]")           
               
     return(t1,fig)
@@ -116,15 +116,15 @@ def generate_plot2(start, finish, vel, acc, jerk):
     # Plot 1
     fig1 = go.Figure()
     fig1.add_trace(go.Scatter(x=time, y=position,mode="lines",hovertemplate="Time: %{x:.3f} s<br>Position: %{y:.2f} uut"))
-    fig1.update_layout(title="Plot of Position", xaxis_title="Time[ms]", yaxis_title="(User Units)", hovermode="x unified")
+    fig1.update_layout(title="Plot of Position", xaxis_title="Time [sec]", yaxis_title="(User Units)", hovermode="x unified")
     # Plot 2
     fig2 = go.Figure()
     fig2.add_trace(go.Scatter(x=time, y=speed,mode='lines',hovertemplate="Time: %{x:.3f} s<br>Velocity: %{y:.2f} uut/sec"))
-    fig2.update_layout(title="Plot of Velocity", xaxis_title="Time[ms]", yaxis_title="(User Units)/sec", hovermode="x unified")
+    fig2.update_layout(title="Plot of Velocity", xaxis_title="Time [sec]", yaxis_title="(User Units)/sec", hovermode="x unified")
     # Plot 3
     fig3 = go.Figure()
     fig3.add_trace(go.Scatter(x=time, y=acc,mode='lines',hovertemplate="Time: %{x:.3f} s<br>Acceleration: %{y:.2f} uut/sec^2"))
-    fig3.update_layout(title="Plot of Acceleration", xaxis_title="Time[ms]", yaxis_title="(User Units)/sec^2", hovermode="x unified")
+    fig3.update_layout(title="Plot of Acceleration", xaxis_title="Time [sec]", yaxis_title="(User Units)/sec^2", hovermode="x unified")
     
          
               
