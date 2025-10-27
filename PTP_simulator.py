@@ -115,15 +115,15 @@ def generate_plot2(start, finish, vel, acc, jerk):
     
     # Plot 1
     fig1 = go.Figure()
-    fig1.add_trace(go.Scatter(x=time, y=position,mode="lines",hovertemplate="Time: %{x:.3f} s<br>Position: %{y:.2f} uut"))
+    fig1.add_trace(go.Scatter(x=time, y=position,mode="lines",hovertemplate="Time: %{x:.3f} s<br>Position: %{y:.3f} uut"))
     fig1.update_layout(title="Plot of Position", xaxis_title="Time [sec]", yaxis_title="(User Units)", hovermode="x unified")
     # Plot 2
     fig2 = go.Figure()
-    fig2.add_trace(go.Scatter(x=time, y=speed,mode='lines',hovertemplate="Time: %{x:.3f} s<br>Velocity: %{y:.2f} uut/sec"))
+    fig2.add_trace(go.Scatter(x=time, y=speed,mode='lines',hovertemplate="Time: %{x:.3f} s<br>Velocity: %{y:.3f} uut/sec"))
     fig2.update_layout(title="Plot of Velocity", xaxis_title="Time [sec]", yaxis_title="(User Units)/sec", hovermode="x unified")
     # Plot 3
     fig3 = go.Figure()
-    fig3.add_trace(go.Scatter(x=time, y=acc,mode='lines',hovertemplate="Time: %{x:.3f} s<br>Acceleration: %{y:.2f} uut/sec^2"))
+    fig3.add_trace(go.Scatter(x=time, y=acc,mode='lines',hovertemplate="Time: %{x:.3f} s<br>Acceleration: %{y:.3f} uut/sec^2"))
     fig3.update_layout(title="Plot of Acceleration", xaxis_title="Time [sec]", yaxis_title="(User Units)/sec^2", hovermode="x unified")
     
          
@@ -147,7 +147,7 @@ param6 = st.sidebar.number_input("Jerk  \n[(User Units)/sec^$3$]", value=600000.
 if st.button("Generate Plot"):
     #st.pyplot(fig)
     figs,time = generate_plot2(param1, param2, param3, param4, param6)
-    st.markdown(f"### Time To Perform The Defined Profile: `{time:.2f}` seconds")
+    st.markdown(f"### Time To Perform The Defined Profile: `{time:.4f}` seconds")
     st.plotly_chart(figs[0], use_container_width=True)
     st.plotly_chart(figs[1], use_container_width=True)
     st.plotly_chart(figs[2], use_container_width=True)
@@ -155,3 +155,4 @@ if st.button("Generate Plot"):
     
     
 #fig=generate_plot(0,50,1200,24000,24000,600000)
+
