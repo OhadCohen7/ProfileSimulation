@@ -115,6 +115,9 @@ def generate_plot2(start, finish, vel, acc, jerk):
     speed = [s[0] for s in speed]
     acc = [a[0] for a in acc]
 
+    # Compute RMS acceleration
+    acc_rms = np.sqrt(np.mean(np.square(acc)))
+
     # Plot 1
     fig1 = go.Figure()
     fig1.add_trace(
@@ -166,7 +169,7 @@ def generate_plot2(start, finish, vel, acc, jerk):
         hovermode="x unified",
     )
 
-    return (fig1, fig2, fig3), t1
+    return (fig1, fig2, fig3), t1, acc_rms
 
 
 # Title
@@ -228,10 +231,12 @@ param6 = st.sidebar.number_input(
 
 # Generate and Display Plot
 if st.button("Generate Plot"):
-    figs, time_total = generate_plot2(param1, param2, param3, param4, param6)
+    figs, time_total, acc_rms = generate_plot2(param1, param2, param3, param4, param6)
     st.markdown(
         f"### Time To Perform The Defined Profile: `{time_total:.4f}` seconds"
     )
     st.plotly_chart(figs[0], use_container_width=True)
     st.plotly_chart(figs[1], use_container_width=True)
     st.plotly_chart(figs[2], use_container_width=True)
+    st.info(f"RMS Acceleration (proxy for RMS current): {acc_rms:.3f} (User Units/sec²)")
+
