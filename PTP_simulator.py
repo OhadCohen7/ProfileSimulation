@@ -181,7 +181,7 @@ presets = {
     "IM X axis": {"speed": 1200.0, "acc": 24000.0, "jerk": 600000.0},
     "IM Y axis": {"speed": 1200.0, "acc": 12000.0, "jerk": 185000.0},
     "IM Theta axis": {"speed": 22.0, "acc": 140.0, "jerk": 1500.0},
-    "IM Polarizer": {"speed": 53.0, "acc": 3400.0, "jerk": 235000.0},
+    "IM Polarizer": {"speed": 53.0, "acc": 3400.0, "jerk": 235000.0}
 }
 
 axis_choice = st.sidebar.selectbox(
@@ -240,6 +240,7 @@ if st.button("Generate Plot"):
     st.plotly_chart(figs[1], use_container_width=True)
     st.plotly_chart(figs[2], use_container_width=True)
     st.info(f"RMS Acceleration (proxy for RMS current): {acc_rms:.3f} (User Units/sec²)")
+
 
 
 
