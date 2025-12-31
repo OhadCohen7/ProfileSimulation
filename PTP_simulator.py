@@ -173,7 +173,7 @@ def generate_plot2(start, finish, vel, acc, jerk):
 
 
 # Title
-st.title("Interactive Motion Profile Generator - AAA")
+st.title("Interactive 3rd Order Motion Profile Generator")
 
 # Sidebar: predefined kinematics + numeric inputs
 
@@ -240,6 +240,7 @@ if st.button("Generate Plot"):
     st.plotly_chart(figs[1], use_container_width=True)
     st.plotly_chart(figs[2], use_container_width=True)
     st.info(f"RMS Acceleration (proxy for RMS current): {acc_rms:.3f} (User Units/sec²)")
+
 
 
 
