@@ -173,7 +173,7 @@ def generate_plot2(start, finish, vel, acc, jerk):
 
 
 # Title
-st.title("Interactive Motion Profile Generator")
+st.title("Interactive Motion Profile Generator - AAA")
 
 # Sidebar: predefined kinematics + numeric inputs
 
@@ -183,8 +183,6 @@ presets = {
     "IM Theta axis": {"speed": 22.0, "acc": 140.0, "jerk": 1500.0},
     "IM Polarizer": {"speed": 53.0, "acc": 3400.0, "jerk": 235000.0}
 }
-st.sidebar.write("Presets keys:", list(presets.keys()))
-st.sidebar.write("Number of presets:", len(presets))
 
 axis_choice = st.sidebar.selectbox(
     "Predefined Kinematics",
@@ -242,6 +240,7 @@ if st.button("Generate Plot"):
     st.plotly_chart(figs[1], use_container_width=True)
     st.plotly_chart(figs[2], use_container_width=True)
     st.info(f"RMS Acceleration (proxy for RMS current): {acc_rms:.3f} (User Units/sec²)")
+
 
 
 
