@@ -184,9 +184,6 @@ presets = {
     "IM Polarizer": {"speed": 53.0, "acc": 3400.0, "jerk": 235000.0}
 }
 
-if "axis_choice" in st.session_state:
-    del st.session_state["axis_choice"]
-    
 axis_choice = st.sidebar.selectbox(
     "Predefined Kinematics",
     list(presets.keys()),
@@ -243,6 +240,7 @@ if st.button("Generate Plot"):
     st.plotly_chart(figs[1], use_container_width=True)
     st.plotly_chart(figs[2], use_container_width=True)
     st.info(f"RMS Acceleration (proxy for RMS current): {acc_rms:.3f} (User Units/sec²)")
+
 
 
 
