@@ -186,7 +186,7 @@ presets = {
 
 axis_choice = st.sidebar.selectbox(
     "Predefined Kinematics",
-    ("IM X axis", "IM Y axis", "IM Theta axis","IM Polarizer"),
+    ("IM X axis", "IM Y axis", "IM Theta axis", "IM Polarizer"),
     index=0,
 )
 
@@ -240,6 +240,7 @@ if st.button("Generate Plot"):
     st.plotly_chart(figs[1], use_container_width=True)
     st.plotly_chart(figs[2], use_container_width=True)
     st.info(f"RMS Acceleration (proxy for RMS current): {acc_rms:.3f} (User Units/sec²)")
+
 
 
 
