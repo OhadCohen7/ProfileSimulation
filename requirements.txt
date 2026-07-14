@@ -2,4 +2,4 @@ streamlit
 numpy
 matplotlib
 plotly
-ruckig
+ruckig==0.9.2
